@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Django MVT filtering form</title>
+    <link href={% static "css/form.css" %} type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>Filter Journals</h1>
+        <form method="GET" action="{% url "form" %}">
+            <div class="sgroup">
+                <div class="form-group">
+                    <input type="text" id="Title" 
+                    name="title"
+                    class="inputField" placeholder="Title contains..." />
+                </div>
+                <div class="form-group">
+                    <input type="text" id="titleExact" 
+                    name="title-exact"
+                    placeholder="Title exact..." class="inputField" />
+                </div>
+                <div class="form-group">
+                    <input type="text" id="authorName" 
+                    name="title_author"
+                    placeholder="Title or Author..."
+                    class="inputField" />
+                </div>
+            </div>
+            <div class="lgroup">
+                <div class='form-group'>
+                    <label for="minViews">Minimum Views </label>
+                    <input type="number" min=0 
+                    name="min-views"
+                    value=0 id="minViews" class="inputField" />
+                </div>
+                <div class='form-group'>
+                    <label for="">Maximum Views</label>
+                    <input type="number" id="maxIntView" 
+                    name="max-views"
+                    class="inputField" />
+                </div>
+                </div>
+                <div class="lgroup">
+                <div class='form-group'>
+                    <label for="">From</label>
+                    <input type="date" 
+                    name="min-date"
+                    id="minpublished__date" class="inputField" />
+                </div>
+                 <div class='form-group'>
+                    <label for="">To</label>
+                    <input type="date" 
+                    name="max-date"
+                    id="maxpublished__date" class="inputField" />
+                </div>
+                </div>
+                <div class="form-group">
+                    <label for="Categories">Category</label>
+                    <select>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                </div>
+             </div>
+             <div class="subgroup">
+             <button class="btn" id="submit" type="submit" value="Submit">Search</button>
+             </div>
+        </form>
+    </div>
+    {% include "_journals.html" %}
+</body>
+
+</html>
