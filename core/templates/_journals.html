@@ -4,41 +4,47 @@ table{
     margin-top: 30px;
     color: #333;
     font-family: "Gill Sans";
-    width: 650px;
+    width: 600px;
     font-weight: bold;
 }
 th{
     left: 0px;
     margin-left: 0px;
+
 }
 .tab{
-    padding-top: 3px;
-    padding-bottom: 3px;
+    padding: 5px 8px 4px;
     border-bottom: 1px solid lightgray;
     overflow: hidden;
-    text-align: center;
+    text-align: left;
 
 }
 .header{
     margin-bottom: -29.98px;
     background: lightgray;
     color:white;
-    width: 608px;
+    width: 561px;
     text-align: center;
     font-weight: 700;
     font-size: 20px;
     padding: 1em 1em;
+}
+.tops{
+    text-align: left;
+    color: gray;
+    
 }
 </style>
 
 <div class="header">Journals</div>
 <table class="journals">
 <thead>
-<tr>
+<tr class="tops">
 <th>Title</th>
 <th>Published On</th>
 <th>Views</th>
 <th> Reviewed</th>
+<th>Category</th>
 </tr>
 </thead>
 <tbody>
@@ -48,6 +54,7 @@ th{
  <td>{{ o.published|date:"F jS o"}}</td>
  <td>{{ o.views }}</td>
  <td>{{ o.reviewed }}</td>
+ <td> {{o.categories.all|join:","}}</td>
  </tr>
 {% endfor %}
 </tbody>
