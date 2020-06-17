@@ -27,7 +27,7 @@ class Command(BaseCommand):
             views = random.randint(1,100)
             reviewed = random.randint(0,1) == 1
             author_name = random.choice(author_names)
-            published = faker.date_time_between(start_date='-7y', end_date='now')
+            published = faker.date_between(start_date='-7y', end_date='now')
             category_name = random.choice(categories)
             
             #create the author instance & save to db
